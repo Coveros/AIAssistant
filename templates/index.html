@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting App</title>
+</head>
+<body>
+    <h1>Sorting App</h1>
+    <form id="sortForm">
+        <label for="numbers">Enter numbers (comma-separated):</label>
+        <input type="text" id="numbers" name="numbers" required>
+        <br><br>
+        <label for="algorithm">Select sorting algorithm:</label>
+        <select id="algorithm" name="algorithm">
+            <option value="quick">Quick Sort</option>
+            <option value="bubble">Bubble Sort</option>
+            <option value="merge">Merge Sort</option>
+        </select>
+        <br><br>
+        <button type="button" onclick="sortNumbers()">Sort</button>
+    </form>
+    <h2>Sorted Numbers:</h2>
+    <textarea id="sortedNumbers" rows="5" cols="50" readonly></textarea>
+
+    <script>
+        async function sortNumbers() {
+            const numbersInput = document.getElementById('numbers').value;
+            const algorithm = document.getElementById('algorithm').value;
+            const numbers = numbersInput.split(',').map(num => parseFloat(num.trim()));
+
+            const response = await fetch('/sort', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ numbers, algorithm }),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                document.getElementById('sortedNumbers').value = data.sorted_numbers.join(', ');
+            } else {
+                alert('Error sorting numbers');
+            }
+        }
+    </script>
+</body>
+</html>
