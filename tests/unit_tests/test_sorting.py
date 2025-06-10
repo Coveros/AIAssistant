@@ -1,5 +1,5 @@
 import pytest
-from sorting import quick_sort, bubble_sort, merge_sort
+from sorting import quick_sort, bubble_sort, merge_sort, insertion_sort
 
 # filepath: c:\Users\jpayne\Documents\Training\Notebooks for ML classes\AIAssistant2\test_sorting.py
 
@@ -36,3 +36,13 @@ class TestSortingAlgorithms:
         assert merge_sort([1, 2, 3]) == [1, 2, 3]
         assert merge_sort([3, 2, 1]) == [1, 2, 3]
         assert merge_sort([5, 3, 8, 3, 1]) == [1, 3, 3, 5, 8]
+
+    # test_insertion_sort tests the insertion_sort function
+    # it checks for various cases including empty list, single element, already sorted,
+    # reverse sorted, and unsorted lists.
+    def test_insertion_sort(self):
+        assert insertion_sort([]) == []
+        assert insertion_sort([1]) == [1]
+        assert insertion_sort([1, 2, 3]) == [1, 2, 3]
+        assert insertion_sort([3, 2, 1]) == [1, 2, 3]
+        assert insertion_sort([5, 3, 8, 3, 1]) == [1, 3, 3, 5, 8]
