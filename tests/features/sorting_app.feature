@@ -23,3 +23,10 @@ Feature: Sorting numbers using different algorithms
     And I select Merge Sort from the dropdown
     And I click the Sort button
     Then I should see 3, 4, 8, 10 in the sorted numbers area
+
+  Scenario: Sorting numbers using Insertion Sort
+    Given I open the sorting application
+    When I enter 7, 2, 9, 1 as numbers
+    And I select Insertion Sort from the dropdown
+    And I click the Sort button
+    Then I should see 1, 2, 7, 9 in the sorted numbers area
