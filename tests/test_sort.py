@@ -113,3 +113,37 @@ def step_click_sort_button(sb):
 def step_see_sorted_numbers(sb):
     sb.assert_text("3, 4, 8, 10", "#sortedNumbers")
     sb.sleep(2)
+
+# BDD test for insertion sort
+# Scenario: Sorting numbers using Insertion Sort
+#     Given I open the sorting application
+#     When I enter 7, 2, 9, 1 as numbers
+#     And I select Insertion Sort from the dropdown
+#     And I click the Sort button
+#     Then I should see 1, 2, 7, 9 in the sorted numbers area
+
+@scenario('features/sorting_app.feature', 'Sorting numbers using Insertion Sort') 
+def test_insertion_sort():
+    pass
+
+@given('I open the sorting application')
+def step_open_sorting_application(sb):
+    sb.get(PAGE)
+
+@when('I enter 7, 2, 9, 1 as numbers')
+def step_enter_numbers(sb):
+    sb.type("#numbers", "7, 2, 9, 1")
+
+@when('I select Insertion Sort from the dropdown')
+def step_select_insertion_sort(sb):
+    sb.select_option_by_value("#algorithm", "insertion")
+    sb.click("#algorithm")
+
+@when('I click the Sort button')
+def step_click_sort_button(sb):
+    sb.click("button:contains('Sort')")
+
+@then('I should see 1, 2, 7, 9 in the sorted numbers area')
+def step_see_sorted_numbers(sb):
+    sb.assert_text("1, 2, 7, 9", "#sortedNumbers")
+    sb.sleep(2)
