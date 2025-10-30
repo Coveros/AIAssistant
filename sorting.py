@@ -62,6 +62,20 @@ def merge_sort(arr):
             k += 1
     return arr
 
+# Insertion sorting algorithm
+# Insertion sort is a simple sorting algorithm that builds the final sorted array one item at a time.
+# It iterates through an input array and removes one element per iteration, finds the place the element 
+# belongs in the sorted list and inserts it there. It repeats until no input elements remain.
+def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+    return arr
+
 # Flask application setup
 # The Flask application serves as a web interface for the sorting algorithms.
 @app.route('/')
