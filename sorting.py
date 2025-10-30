@@ -64,8 +64,8 @@ def merge_sort(arr):
 
 # Insertion sorting algorithm
 # Insertion sort is a simple sorting algorithm that builds the final sorted array one item at a time.
-# It iterates through an input array and removes one element per iteration, finds the place the element 
-# belongs in the sorted list and inserts it there. It repeats until no input elements remain.
+# It iterates through an input array, and for each element, finds the correct position in the 
+# sorted portion and inserts it there by shifting larger elements to the right.
 def insertion_sort(arr):
     for i in range(1, len(arr)):
         key = arr[i]
@@ -101,6 +101,8 @@ def sort_numbers():
         sorted_numbers = bubble_sort(numbers)
     elif algorithm == 'merge':
         sorted_numbers = merge_sort(numbers)
+    elif algorithm == 'insertion':
+        sorted_numbers = insertion_sort(numbers)
     else:
         return jsonify({'error': 'Invalid sorting algorithm'}), 400
 
