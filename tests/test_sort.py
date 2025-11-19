@@ -43,7 +43,7 @@ def step_click_sort_button(sb):
 
 @then('I should see 1, 3, 5, 8 in the sorted numbers area')
 def step_see_sorted_numbers(sb):
-    sb.assert_text("1, 3, 5, 8", "#sortedNumbers")
+    sb.assert_text("1, 3, 5, 8", ".sorted-numbers")
     sb.sleep(2)
 
 # BDD test for bubble sort 
@@ -77,7 +77,7 @@ def step_click_sort_button(sb):
 
 @then('I should see 2, 6, 7, 9 in the sorted numbers area')
 def step_see_sorted_numbers(sb):
-    sb.assert_text("2, 6, 7, 9", "#sortedNumbers")
+    sb.assert_text("2, 6, 7, 9", ".sorted-numbers")
     sb.sleep(2)
 
 # BDD test for merge sort
@@ -111,5 +111,5 @@ def step_click_sort_button(sb):
 
 @then('I should see 3, 4, 8, 10 in the sorted numbers area')
 def step_see_sorted_numbers(sb):
-    sb.assert_text("3, 4, 8, 10", "#sortedNumbers")
+    sb.assert_text("3, 4, 8, 10", ".sorted-numbers")
     sb.sleep(2)
